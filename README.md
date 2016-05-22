@@ -1,6 +1,6 @@
 Scrapy Jr. and Sr.
 ======
-**Scrapy** is a script in python for scraping webpages. Also, this is my first script with Python and BeautifulSoup to help with a Digital Marketing project.
+**Scrapy** is a script in python for scraping webpages. Also, this is my first script with Python and BeautifulSoup to help with a Marketing audit project.
 
 scrapy-jr is a very chatty script (read as Debug-Friendly) and scrapy-sr is a more serious (read as quiet and batch processing) script.
 
