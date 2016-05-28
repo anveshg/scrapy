@@ -81,7 +81,7 @@ def clean404(dirtybucket,cleanfile,filename_404,filename_man):
     for uline in dirtybucket:
         if uline == "#" : continue
         if "http:" not in uline :
-            manCheckFile.write(uline)
+            manCheckFile.write(uline + "/n")
             cleanedFile.write("\n")
             cleanedbucket.append("\n")
             print "Weird URL Caught - " + uline
@@ -100,7 +100,7 @@ def clean404(dirtybucket,cleanfile,filename_404,filename_man):
                 cleanedFile.write(site + "\n")
                 cleanedbucket.append(site)
         except (requests.ConnectionError,requests.HTTPError,requests.Timeout,requests.TooManyRedirects) as e:
-                manCheckFile.write(site)
+                manCheckFile.write(site + "/n")
                 cleanedFile.write("\n")
                 cleanedbucket.append("\n")
                 print str(e) + " - " + site
@@ -134,19 +134,19 @@ def geth1s(urlbucket,h1sfileName,manFileHfileName):
             req = requests.get(site)
         except :
             print "Failed to get H1: " +site
-            manfileH1.write("---")
+            manfileH1.write("\n---\n")
             manfileH1.write(str(site))
-            manfileH1.write("---\n")
+            manfileH1.write("\n---\n")
             outputH1.write("\n")
             continue
         line_url = req.content
         soup = BeautifulSoup(line_url,"html5lib")
         data = soup.select("h1")
         if not data:
-            manfileH1.write("---")
-            manfileH1.write(str(site))
-            manfileH1.write(str(data))
-            manfileH1.write("---\n")
+            manfileH1.write("\n---\n")
+            manfileH1.write(str(site) + "/n")
+            manfileH1.write(str(data) + "/n")
+            manfileH1.write("\n---\n")
             outputH1.write("\n")
         elif "/solution/" in site :
             temp = data[0].get_text().encode('utf-8')
